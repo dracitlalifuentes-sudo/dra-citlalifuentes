@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dra. Citlali Fuentes | Odontopediatría Especializada</title>
+    <meta name="description" content="Dra. Citlali Fuentes - Odontopediatra especializada en niños con miedo al dentista. Cuidado dental familiar en Salina Cruz, Oaxaca.">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -14,20 +16,31 @@
                     colors: {
                         'dark-primary': '#E6F4FF',
                         'dark-secondary': '#B8E2FF',
-                        'accent-blue': '#6AC5FF',
-                        'accent-pink': '#FF4D88',
-                        'text-light': '#222222'
+                        'accent-blue': '#1E88E5',
+                        'accent-pink': '#D81B60',
+                        'text-light': '#222222',
+                        'dark-blue': '#0D47A1',
+                        'light-bg': '#F8F9FA',
+                        'soft-blue': '#E3F2FD',
+                        'deep-blue': '#1565C0'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'pulse-soft': 'pulseSoft 2s infinite'
+                    },
+                    fontFamily: {
+                        'comfortaa': ['Comfortaa', 'cursive'],
+                        'poppins': ['Poppins', 'sans-serif']
                     }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap');
-        
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #FF6B9E 0%, #6AC5FF 50%, #9D4EDD 100%);
+            scroll-behavior: smooth;
         }
         
         .hero-clip {
@@ -44,6 +57,21 @@
             100% { transform: translateY(0px); }
         }
         
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulseSoft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
         .btn-primary {
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -51,119 +79,269 @@
         
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
         }
         
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
         }
         
         .testimonial-card {
             transition: all 0.3s ease;
+            background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
         }
         
         .testimonial-card:hover {
-            transform: scale(1.02);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
         }
         
         .whatsapp-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            z-index: 99;
-            background: #25D366;
+            z-index: 1000;
+            background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             border-radius: 50px;
-            padding: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 15px 20px;
+            box-shadow: 0 6px 12px rgba(37, 211, 102, 0.3);
             transition: all 0.3s ease;
+            animation: pulse-soft 2s infinite;
         }
         
         .whatsapp-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 16px rgba(37, 211, 102, 0.4);
+            animation: none;
         }
         
-        .required-field::after {
-            content: " *";
-            color: #FF4D88;
+        .gradient-text {
+            background: linear-gradient(135deg, #1E88E5, #D81B60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        /* Form Success Styles */
-        .form-success {
-            display: none;
-            background: rgba(106, 197, 255, 0.9);
-            padding: 2rem;
-            border-radius: 0.5rem;
-            text-align: center;
-            margin-top: 1rem;
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #1E88E5, #D81B60, transparent);
+            margin: 4rem auto;
+            width: 80%;
+            max-width: 200px;
         }
         
-        .form-success.show {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out;
+        .sticky-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .sticky-nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #1E88E5, #D81B60);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            background: linear-gradient(135deg, #1E88E5, #D81B60);
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #1E88E5, #D81B60);
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1E88E5, #D81B60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+        
+        .appointment-card {
+            background: linear-gradient(135deg, #1E88E5, #D81B60);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(30, 136, 229, 0.3);
         }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen bg-light-bg">
+    <!-- Loading Bar -->
+    <div class="loading-bar" id="loadingBar"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i data-feather="chevron-up" class="w-6 h-6"></i>
+    </button>
+
     <!-- WhatsApp Floating Button -->
-    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20tengo%20una%20duda%20sobre..." class="whatsapp-btn flex items-center">
-        <i data-feather="message-circle" class="w-8 h-8 mr-2"></i>
-        <span class="hidden md:inline">¿Dudas?</span>
+    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20tengo%20una%20duda%20sobre..." class="whatsapp-btn flex items-center shadow-lg" target="_blank">
+        <i data-feather="message-circle" class="w-6 h-6 mr-2"></i>
+        <span class="hidden md:inline font-medium">¿Dudas?</span>
     </a>
 
     <!-- Navigation -->
-    <nav class="bg-white bg-opacity-80 shadow-md py-4 sticky top-0 z-50 backdrop-blur-sm">
+    <nav class="sticky-nav py-4 sticky top-0 z-50" id="mainNav">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i data-feather="smile" class="text-accent-pink w-8 h-8"></i>
-                <span class="text-xl font-bold text-accent-blue">Dra. Citlali Fuentes</span>
-                <span class="text-sm text-accent-pink hidden md:block">| Fundación Dientes</span>
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-r from-accent-blue to-accent-pink p-2 rounded-lg">
+                    <i data-feather="smile" class="text-white w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold text-accent-blue font-comfortaa">Dra. Citlali Fuentes</span>
+                    <span class="text-sm text-accent-pink hidden md:block font-medium">| Fundación Dientes</span>
+                </div>
             </div>
             <div class="hidden md:flex space-x-8">
-                <a href="#inicio" class="text-text-light hover:text-accent-pink font-medium">Inicio</a>
-                <a href="#servicios" class="text-text-light hover:text-accent-pink font-medium">Servicios</a>
-                <a href="#doctora" class="text-text-light hover:text-accent-pink font-medium">La Doctora</a>
-                <a href="#testimonios" class="text-text-light hover:text-accent-pink font-medium">Testimonios</a>
-                <a href="#contacto" class="text-text-light hover:text-accent-pink font-medium">Contacto</a>
+                <a href="#inicio" class="text-text-light hover:text-accent-pink font-medium transition-colors duration-300 relative group">
+                    Inicio
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-pink transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#servicios" class="text-text-light hover:text-accent-pink font-medium transition-colors duration-300 relative group">
+                    Servicios
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-pink transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#doctora" class="text-text-light hover:text-accent-pink font-medium transition-colors duration-300 relative group">
+                    La Doctora
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-pink transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#testimonios" class="text-text-light hover:text-accent-pink font-medium transition-colors duration-300 relative group">
+                    Testimonios
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-pink transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contacto" class="text-text-light hover:text-accent-pink font-medium transition-colors duration-300 relative group">
+                    Contacto
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent-pink transition-all duration-300 group-hover:w-full"></span>
+                </a>
             </div>
-            <button class="md:hidden focus:outline-none">
-                <i data-feather="menu" class="w-6 h-6"></i>
+            <button class="md:hidden focus:outline-none hover-lift" id="mobileMenuButton">
+                <i data-feather="menu" class="w-6 h-6 text-accent-blue"></i>
             </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4" id="mobileMenu">
+            <div class="container mx-auto px-6 space-y-4">
+                <a href="#inicio" class="block text-text-light hover:text-accent-pink font-medium py-2 transition-colors duration-300">Inicio</a>
+                <a href="#servicios" class="block text-text-light hover:text-accent-pink font-medium py-2 transition-colors duration-300">Servicios</a>
+                <a href="#doctora" class="block text-text-light hover:text-accent-pink font-medium py-2 transition-colors duration-300">La Doctora</a>
+                <a href="#testimonios" class="block text-text-light hover:text-accent-pink font-medium py-2 transition-colors duration-300">Testimonios</a>
+                <a href="#contacto" class="block text-text-light hover:text-accent-pink font-medium py-2 transition-colors duration-300">Contacto</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="inicio" class="hero-clip bg-gradient-to-r from-accent-pink to-accent-blue py-20 md:py-32">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Sonrisas saludables para toda la familia</h1>
-                <p class="text-xl text-white mb-8">Especial atención a niños con miedo al dentista. Tratamientos accesibles y personalizados.</p>
-                <div class="flex space-x-4">
-                    <a href="#agendar" class="bg-white text-accent-pink px-6 py-3 rounded-full font-medium btn-primary">Agendar cita</a>
-                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre..." class="border-2 border-white text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-accent-pink transition">
-                        <i data-feather="message-circle" class="inline mr-2"></i> WhatsApp
+    <section id="inicio" class="hero-clip bg-gradient-to-r from-accent-blue to-accent-pink py-20 md:py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-comfortaa leading-tight">
+                    Sonrisas saludables para toda la familia
+                </h1>
+                <p class="text-xl text-white mb-8 opacity-90 leading-relaxed">
+                    Especial atención a niños con miedo al dentista. Tratamientos accesibles y personalizados en un ambiente cálido y seguro.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#agendar" class="bg-white text-accent-pink px-8 py-4 rounded-full font-semibold btn-primary text-center hover-lift">
+                        Agendar cita ahora
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre..." 
+                       class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-accent-pink transition-all duration-300 text-center hover-lift"
+                       target="_blank">
+                        <i data-feather="message-circle" class="inline mr-2 w-5 h-5"></i> Consultar por WhatsApp
                     </a>
                 </div>
+                
+                <!-- Trust Indicators -->
+                <div class="flex flex-wrap gap-6 mt-8 pt-6 border-t border-white border-opacity-20">
+                    <div class="flex items-center text-white">
+                        <i data-feather="check-circle" class="w-5 h-5 mr-2 text-green-300"></i>
+                        <span class="text-sm">Atención personalizada</span>
+                    </div>
+                    <div class="flex items-center text-white">
+                        <i data-feather="check-circle" class="w-5 h-5 mr-2 text-green-300"></i>
+                        <span class="text-sm">Ambiente seguro</span>
+                    </div>
+                    <div class="flex items-center text-white">
+                        <i data-feather="check-circle" class="w-5 h-5 mr-2 text-green-300"></i>
+                        <span class="text-sm">Precios accesibles</span>
+                    </div>
+                </div>
             </div>
-            <div class="md:w-1/2 flex justify-center">
+            <div class="md:w-1/2 flex justify-center animate-slide-up">
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Niño sonriendo en consultorio dental" class="rounded-lg shadow-xl w-full max-w-md floating">
-                    <div class="absolute -bottom-6 -right-6 bg-dark-secondary p-4 rounded-lg shadow-md hidden md:block">
-                        <a href="#doctora" class="flex items-center">
-                            <div class="bg-accent-pink p-2 rounded-full mr-3">
-                                <i data-feather="user" class="text-text-light w-5 h-5"></i>
+                    <img src="https://github.com/dracitlalifuentes-sudo/dra-citlali-fuentes/blob/main/images/IMG-20251019-WA0006.jpg?raw=true" 
+                         alt="Niño sonriendo en consultorio dental" 
+                         class="rounded-2xl shadow-2xl w-full max-w-md floating border-8 border-white">
+                    <div class="absolute -bottom-6 -right-6 bg-dark-blue p-4 rounded-2xl shadow-xl hidden md:block hover-lift">
+                        <a href="#doctora" class="flex items-center group">
+                            <div class="bg-accent-pink p-3 rounded-full mr-3 group-hover:bg-accent-blue transition-colors duration-300">
+                                <i data-feather="user" class="text-white w-6 h-6"></i>
                             </div>
                             <div>
-                                <p class="font-bold text-text-light">Conoce más</p>
-                                <p class="text-sm text-white">sobre la doctora</p>
+                                <p class="font-bold text-white text-sm">Conoce más</p>
+                                <p class="text-xs text-white opacity-90">sobre la doctora</p>
                             </div>
+                            <i data-feather="arrow-right" class="ml-2 text-white w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
                         </a>
                     </div>
                 </div>
@@ -171,84 +349,141 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="servicios" class="py-20 bg-white">
+    <!-- Stats Section -->
+    <section class="py-12 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-accent-blue mb-4">Nuestros Servicios Dentales</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Ofrecemos tratamientos personalizados que se adaptan a las necesidades y presupuesto de cada paciente.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="animate-fade-in">
+                    <div class="stat-number">500+</div>
+                    <p class="text-text-light font-medium">Pacientes atendidos</p>
+                </div>
+                <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="stat-number">98%</div>
+                    <p class="text-text-light font-medium">Pacientes satisfechos</p>
+                </div>
+                <div class="animate-fade-in" style="animation-delay: 0.4s;">
+                    <div class="stat-number">5+</div>
+                    <p class="text-text-light font-medium">Años de experiencia</p>
+                </div>
+                <div class="animate-fade-in" style="animation-delay: 0.6s;">
+                    <div class="stat-number">100%</div>
+                    <p class="text-text-light font-medium">Enfocados en niños</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-soft-blue">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl font-bold text-dark-blue mb-4 font-comfortaa">Nuestros Servicios Dentales</h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                    Ofrecemos tratamientos personalizados que se adaptan a las necesidades y presupuesto de cada paciente, 
+                    con especial enfoque en el cuidado dental infantil.
+                </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="bg-accent-blue bg-opacity-20 p-6 rounded-xl shadow-md service-card transition duration-300">
-                    <div class="bg-white p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                        <i data-feather="activity" class="text-accent-blue w-6 h-6"></i>
+                <div class="service-card p-8 rounded-2xl shadow-lg border border-blue-100 animate-slide-up">
+                    <div class="feature-icon">
+                        <i data-feather="activity"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-accent-blue mb-2">Odontopediatría Especializada</h3>
-                    <p class="text-gray-600 mb-4">Atención especial para niños, especialmente aquellos con miedo al dentista. Técnicas de manejo de conducta.</p>
-                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Odontopediatr%C3%ADa%20Especializada" class="text-accent-pink font-medium flex items-center">
-                        Más información <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                    <h3 class="text-xl font-bold text-dark-blue mb-4 text-center font-comfortaa">Odontología para niños</h3>
+                    <p class="text-gray-700 mb-6 text-center leading-relaxed">
+                        Atención especial para niños, especialmente aquellos con miedo al dentista. Técnicas de manejo de conducta.
+                    </p>
+                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Odontopediatr%C3%ADa%20Especializada" 
+                       class="text-accent-pink font-semibold flex items-center justify-center group"
+                       target="_blank">
+                        Más información 
+                        <i data-feather="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"></i>
                     </a>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-md service-card transition duration-300">
-                    <div class="bg-accent-blue bg-opacity-20 p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                        <i data-feather="droplet" class="text-accent-blue w-6 h-6"></i>
+                <div class="service-card p-8 rounded-2xl shadow-lg border border-blue-100 animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="feature-icon">
+                        <i data-feather="droplet"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-accent-blue mb-2">Limpieza Dental Profesional</h3>
-                    <p class="text-gray-600 mb-4">Remoción de placa y sarro para prevenir caries y enfermedades periodontales. Paquetes familiares disponibles.</p>
-                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Limpieza%20Dental%20Profesional" class="text-accent-pink font-medium flex items-center">
-                        Más información <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                    <h3 class="text-xl font-bold text-dark-blue mb-4 text-center font-comfortaa">Limpieza Dental Profesional</h3>
+                    <p class="text-gray-700 mb-6 text-center leading-relaxed">
+                        Remoción de placa y sarro para prevenir caries y enfermedades periodontales. Paquetes familiares disponibles.
+                    </p>
+                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Limpieza%20Dental%20Profesional" 
+                       class="text-accent-pink font-semibold flex items-center justify-center group"
+                       target="_blank">
+                        Más información 
+                        <i data-feather="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"></i>
                     </a>
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="bg-accent-blue p-6 rounded-xl shadow-md service-card transition duration-300">
-                    <div class="bg-dark-primary p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                        <i data-feather="sun" class="text-text-light w-6 h-6"></i>
+                <div class="service-card p-8 rounded-2xl shadow-lg border border-blue-100 bg-gradient-to-br from-accent-blue to-deep-blue animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="feature-icon bg-white bg-opacity-20">
+                        <i data-feather="sun" class="text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Blanqueamiento Dental</h3>
-                    <p class="text-white mb-4">Tratamientos efectivos y seguros para aclarar el tono de tus dientes hasta 8 tonos en una sola sesión.</p>
-                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Blanqueamiento%20Dental" class="text-accent-pink font-medium flex items-center">
-                        Más información <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center font-comfortaa">Blanqueamiento Dental</h3>
+                    <p class="text-white mb-6 text-center leading-relaxed opacity-90">
+                        Tratamientos efectivos y seguros para aclarar el tono de tus dientes y sonreir con seguridad.
+                    </p>
+                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Blanqueamiento%20Dental" 
+                       class="text-white font-semibold flex items-center justify-center group"
+                       target="_blank">
+                        Más información 
+                        <i data-feather="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"></i>
                     </a>
                 </div>
                 
                 <!-- Service 4 -->
-                <div class="bg-accent-blue bg-opacity-20 p-6 rounded-xl shadow-md service-card transition duration-300">
-                    <div class="bg-white p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                        <i data-feather="shield" class="text-accent-blue w-6 h-6"></i>
+                <div class="service-card p-8 rounded-2xl shadow-lg border border-blue-100 animate-slide-up" style="animation-delay: 0.3s;">
+                    <div class="feature-icon">
+                        <i data-feather="shield"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-accent-blue mb-2">Sellantes Dentales</h3>
-                    <p class="text-gray-600 mb-4">Protección especial para los dientes de los niños contra las caries. Aplicación rápida e indolora.</p>
-                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Sellantes%20Dentales" class="text-accent-pink font-medium flex items-center">
-                        Más información <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                    <h3 class="text-xl font-bold text-dark-blue mb-4 text-center font-comfortaa">Sellantes Dentales</h3>
+                    <p class="text-gray-700 mb-6 text-center leading-relaxed">
+                        Protección especial para los dientes de los niños contra las caries. Aplicación rápida e indolora.
+                    </p>
+                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Sellantes%20Dentales" 
+                       class="text-accent-pink font-semibold flex items-center justify-center group"
+                       target="_blank">
+                        Más información 
+                        <i data-feather="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"></i>
                     </a>
                 </div>
                 
                 <!-- Service 5 -->
-                <div class="bg-accent-blue p-6 rounded-xl shadow-md service-card transition duration-300">
-                    <div class="bg-dark-primary p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                        <i data-feather="tool" class="text-text-light w-6 h-6"></i>
+                <div class="service-card p-8 rounded-2xl shadow-lg border border-blue-100 bg-gradient-to-br from-accent-blue to-deep-blue animate-slide-up" style="animation-delay: 0.4s;">
+                    <div class="feature-icon bg-white bg-opacity-20">
+                        <i data-feather="tool" class="text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Restauraciones</h3>
-                    <p class="text-white mb-4">Tratamiento de caries con materiales de la más alta calidad. Resinas estéticas del color del diente.</p>
-                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Restauraciones%20Dentales" class="text-accent-pink font-medium flex items-center">
-                        Más información <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-4 text-center font-comfortaa">Restauraciones</h3>
+                    <p class="text-white mb-6 text-center leading-relaxed opacity-90">
+                        Tratamiento de caries con materiales de la más alta calidad. Resinas estéticas del color del diente.
+                    </p>
+                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Restauraciones%20Dentales" 
+                       class="text-white font-semibold flex items-center justify-center group"
+                       target="_blank">
+                        Más información 
+                        <i data-feather="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"></i>
                     </a>
                 </div>
                 
                 <!-- Service 6 -->
-                <div class="bg-accent-blue bg-opacity-20 p-6 rounded-xl shadow-md service-card transition duration-300">
-                    <div class="bg-white p-3 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                        <i data-feather="heart" class="text-accent-blue w-6 h-6"></i>
+                <div class="service-card p-8 rounded-2xl shadow-lg border border-blue-100 animate-slide-up" style="animation-delay: 0.5s;">
+                    <div class="feature-icon">
+                        <i data-feather="heart"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-accent-blue mb-2">Ortodoncia Preventiva</h3>
-                    <p class="text-gray-600 mb-4">Diagnóstico temprano de problemas de mordida y alineación dental en niños. Planes de pago flexibles.</p>
-                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Ortodoncia%20Preventiva" class="text-accent-pink font-medium flex items-center">
-                        Más información <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                    <h3 class="text-xl font-bold text-dark-blue mb-4 text-center font-comfortaa">Prótesis Dental</h3>
+                    <p class="text-gray-700 mb-6 text-center leading-relaxed">
+                        Contamos con diferentes tipos de prótesis, totales, parciales, fijas y removibles.
+                    </p>
+                    <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Prótesis%20Dental" 
+                       class="text-accent-pink font-semibold flex items-center justify-center group"
+                       target="_blank">
+                        Más información 
+                        <i data-feather="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"></i>
                     </a>
                 </div>
             </div>
@@ -258,59 +493,63 @@
     <!-- About Doctor Section -->
     <section id="doctora" class="py-20 bg-gradient-to-r from-accent-blue to-blue-100">
         <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center">
+            <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center animate-fade-in">
                 <div class="relative">
-                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Dra. Citlali Fuentes" class="rounded-full w-64 h-64 object-cover border-8 border-white shadow-xl">
-                    <div class="absolute -bottom-5 right-0 bg-accent-pink text-white px-4 py-2 rounded-full shadow-md">
-                        <span class="font-bold">Especialista en Odontopediatría</span>
+                    <img src="https://github.com/dracitlalifuentes-sudo/dra-citlali-fuentes/blob/main/images/Imagen%20de%20WhatsApp%202025-10-08%20a%20las%2020.59.42_3fb2b2f9.jpg?raw=true" 
+                         alt="Dra. Citlali Fuentes" 
+                         class="rounded-full w-64 h-64 object-cover border-8 border-white shadow-2xl hover-lift">
+                    <div class="absolute -bottom-5 right-0 bg-accent-pink text-white px-6 py-3 rounded-full shadow-xl">
+                        <span class="font-bold text-sm">Odontóloga Familiar</span>
                     </div>
                 </div>
             </div>
-            <div class="md:w-2/3 md:pl-16">
-                <h2 class="text-3xl font-bold text-blue-800 mb-6">Dra. Citlali Fuentes</h2>
-                <p class="text-lg text-white mb-6">Odontóloga con especial enfoque en el cuidado dental infantil y atención a pacientes con miedo al dentista.</p>
+            <div class="md:w-2/3 md:pl-16 animate-slide-up">
+                <h2 class="text-4xl font-bold text-dark-blue mb-6 font-comfortaa">Dra. Citlali Fuentes</h2>
+                <p class="text-xl text-dark-blue mb-6 leading-relaxed">
+                    Odontóloga con enfoque en el cuidado dental infantil y atención a pacientes con miedo al dentista.
+                </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div class="flex items-start">
-                        <div class="bg-purple-500 p-2 rounded-full mr-4">
-                            <i data-feather="book" class="text-text-light w-5 h-5"></i>
+                    <div class="flex items-start bg-white p-4 rounded-xl shadow-md hover-lift">
+                        <div class="bg-purple-500 p-3 rounded-full mr-4">
+                            <i data-feather="book" class="text-white w-5 h-5"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-text-light mb-1">Formación Académica</h4>
-                            <p class="text-white">Egresada de la Universidad del Sur con diplomado en Odontopediatría</p>
+                            <h4 class="font-bold text-dark-blue mb-1">Formación Académica</h4>
+                            <p class="text-dark-blue">Egresada de la Universidad del Sur con diplomado en Odontopediatría</p>
                         </div>
                     </div>
-                    <div class="flex items-start">
-                        <div class="bg-yellow-400 p-2 rounded-full mr-4">
-                            <i data-feather="user" class="text-text-light w-5 h-5"></i>
+                    <div class="flex items-start bg-white p-4 rounded-xl shadow-md hover-lift">
+                        <div class="bg-yellow-500 p-3 rounded-full mr-4">
+                            <i data-feather="user" class="text-white w-5 h-5"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-text-light mb-1">Conoce más</h4>
-                            <p class="text-white">Sobre la doctora y su enfoque único</p>
+                            <h4 class="font-bold text-dark-blue mb-1">Conoce más</h4>
+                            <p class="text-dark-blue">Sobre la doctora y su enfoque único</p>
                         </div>
                     </div>
-                    <div class="flex items-start">
-                        <div class="bg-teal-400 p-2 rounded-full mr-4">
-                            <i data-feather="star" class="text-text-light w-5 h-5"></i>
+                    <div class="flex items-start bg-white p-4 rounded-xl shadow-md hover-lift">
+                        <div class="bg-teal-500 p-3 rounded-full mr-4">
+                            <i data-feather="star" class="text-white w-5 h-5"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-text-light mb-1">Especialidad</h4>
-                            <p class="text-white">Atención a niños nerviosos y pacientes con miedo al dentista</p>
+                            <h4 class="font-bold text-dark-blue mb-1">Especialidad</h4>
+                            <p class="text-dark-blue">Atención a niños y pacientes adultos nerviosos (con miedo al dentista)</p>
                         </div>
                     </div>
-                    <div class="flex items-start">
-                        <div class="bg-orange-400 p-2 rounded-full mr-4">
-                            <i data-feather="heart" class="text-text-light w-5 h-5"></i>
+                    <div class="flex items-start bg-white p-4 rounded-xl shadow-md hover-lift">
+                        <div class="bg-orange-500 p-3 rounded-full mr-4">
+                            <i data-feather="heart" class="text-white w-5 h-5"></i>
                         </div>
                         <div>
-                            <h4 class="font-bold text-text-light mb-1">Filosofía</h4>
-                            <p class="text-white">Tratamientos personalizados que se ajustan a cada paciente y presupuesto</p>
+                            <h4 class="font-bold text-dark-blue mb-1">Filosofía</h4>
+                            <p class="text-dark-blue">Tratamientos personalizados que se ajustan a cada paciente y presupuesto</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-accent-pink p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-text-light mb-4">Nuestra Misión</h3>
-                    <p class="text-white mb-4">"En Fundación Dientes, bajo mi dirección, nos esforzamos por crear un ambiente cálido y seguro donde cada paciente, especialmente los niños, puedan recibir atención dental de calidad sin miedo ni ansiedad."</p>
-                    <p class="text-white">- Dra. Citlali Fuentes</p>
+                <div class="bg-accent-pink p-8 rounded-2xl shadow-xl hover-lift">
+                    <h3 class="text-2xl font-bold text-white mb-4 font-comfortaa">Nuestra Misión</h3>
+                    <p class="text-white mb-4 text-lg leading-relaxed">"En Fundación Dientes, bajo mi dirección, nos esforzamos por crear un ambiente cálido y seguro donde cada paciente, especialmente los niños, puedan recibir atención dental de calidad sin miedo ni ansiedad."</p>
+                    <p class="text-white font-semibold">- Dra. Citlali Fuentes</p>
                 </div>
             </div>
         </div>
@@ -319,17 +558,21 @@
     <!-- Testimonials Section -->
     <section id="testimonios" class="py-20 bg-gradient-to-r from-blue-50 to-accent-blue">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-text-light mb-4">Lo que dicen nuestros pacientes</h2>
-                <p class="text-lg text-white max-w-2xl mx-auto">Experiencias reales de familias que han confiado en nuestro cuidado dental.</p>
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl font-bold text-dark-blue mb-4 font-comfortaa">Lo que dicen nuestros pacientes</h2>
+                <p class="text-lg text-dark-blue max-w-2xl mx-auto leading-relaxed">
+                    Experiencias reales de familias que han confiado en nuestro cuidado dental.
+                </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 backdrop-blur-sm">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
-                <div class="bg-purple-700 bg-opacity-80 p-6 rounded-xl shadow-md testimonial-card">
+                <div class="testimonial-card p-6 rounded-2xl shadow-lg border border-blue-200 animate-slide-up">
                     <div class="flex items-center mb-4">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="María González" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" 
+                             alt="María González" 
+                             class="w-12 h-12 rounded-full mr-4 border-2 border-accent-pink">
                         <div>
-                            <h4 class="font-bold text-yellow-300">María González</h4>
+                            <h4 class="font-bold text-dark-blue">María González</h4>
                             <div class="flex">
                                 <i data-feather="star" class="text-yellow-400 w-4 h-4 fill-current"></i>
                                 <i data-feather="star" class="text-yellow-400 w-4 h-4 fill-current"></i>
@@ -339,15 +582,17 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-white italic backdrop-blur-sm bg-white bg-opacity-10 p-4 rounded-lg">"Mi hijo de 5 años tenía mucho miedo al dentista. La Dra. Citlali fue increíblemente paciente y amable. Ahora viene feliz a sus citas y sus dientes están perfectos. ¡Recomendada al 100%!"</p>
+                    <p class="text-gray-700 italic leading-relaxed">"Mi hijo de 5 años tenía mucho miedo al dentista. La Dra. Citlali fue increíblemente paciente y amable. Ahora viene feliz a sus citas y sus dientes están perfectos. ¡Recomendada al 100%!"</p>
                 </div>
                 
                 <!-- Testimonial 2 -->
-                <div class="bg-blue-800 p-6 rounded-xl shadow-md testimonial-card">
+                <div class="testimonial-card p-6 rounded-2xl shadow-lg border border-blue-200 animate-slide-up" style="animation-delay: 0.2s;">
                     <div class="flex items-center mb-4">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="José Martínez" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" 
+                             alt="José Martínez" 
+                             class="w-12 h-12 rounded-full mr-4 border-2 border-accent-pink">
                         <div>
-                            <h4 class="font-bold text-yellow-300">José Martínez</h4>
+                            <h4 class="font-bold text-dark-blue">José Martínez</h4>
                             <div class="flex">
                                 <i data-feather="star" class="text-yellow-400 w-4 h-4 fill-current"></i>
                                 <i data-feather="star" class="text-yellow-400 w-4 h-4 fill-current"></i>
@@ -357,15 +602,17 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-white italic backdrop-blur-sm bg-white bg-opacity-10 p-4 rounded-lg">"Excelente servicio. La doctora explica todo muy bien y los precios son justos. Después de años evitando al dentista por miedo, por fin encontré un lugar donde me siento cómodo."</p>
+                    <p class="text-gray-700 italic leading-relaxed">"Excelente servicio. La doctora explica todo muy bien y los precios son justos. Después de años evitando al dentista por miedo, por fin encontré un lugar donde me siento cómodo."</p>
                 </div>
                 
                 <!-- Testimonial 3 -->
-                <div class="bg-blue-800 p-6 rounded-xl shadow-md testimonial-card">
+                <div class="testimonial-card p-6 rounded-2xl shadow-lg border border-blue-200 animate-slide-up" style="animation-delay: 0.4s;">
                     <div class="flex items-center mb-4">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Familia Rodríguez" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" 
+                             alt="Familia Rodríguez" 
+                             class="w-12 h-12 rounded-full mr-4 border-2 border-accent-pink">
                         <div>
-                            <h4 class="font-bold text-yellow-300">Familia Rodríguez</h4>
+                            <h4 class="font-bold text-dark-blue">Familia Rodríguez</h4>
                             <div class="flex">
                                 <i data-feather="star" class="text-yellow-400 w-4 h-4 fill-current"></i>
                                 <i data-feather="star" class="text-yellow-400 w-4 h-4 fill-current"></i>
@@ -375,7 +622,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-white italic backdrop-blur-sm bg-white bg-opacity-10 p-4 rounded-lg">"Atiende a nuestros tres hijos desde hace dos años. La clínica es muy acogedora para niños y la doctora tiene una paciencia infinita. Los paquetes familiares nos ayudan mucho con el presupuesto."</p>
+                    <p class="text-gray-700 italic leading-relaxed">"Atiende a nuestros tres hijos desde hace dos años. La clínica es muy acogedora para niños y la doctora tiene una paciencia infinita. Los paquetes familiares nos ayudan mucho con el presupuesto."</p>
                 </div>
             </div>
         </div>
@@ -384,80 +631,47 @@
     <!-- Appointment Section -->
     <section id="agendar" class="py-20 bg-gradient-to-r from-accent-blue to-blue-50">
         <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto bg-gradient-to-r from-accent-blue to-accent-pink rounded-2xl shadow-xl overflow-hidden">
+            <div class="max-w-4xl mx-auto appointment-card rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
                 <div class="md:flex">
-                    <div class="md:w-1/2 p-8 md:p-12 text-text-light">
-                        <h2 class="text-3xl font-bold mb-6">Agenda tu cita hoy</h2>
-                        <p class="mb-6">Llena el formulario y nos comunicaremos contigo para confirmar tu cita.</p>
+                    <div class="md:w-1/2 p-8 md:p-12 text-white">
+                        <h2 class="text-3xl font-bold mb-6 font-comfortaa">Agenda tu cita hoy</h2>
+                        <p class="mb-6 text-lg opacity-90">Llena el formulario y nos comunicaremos contigo para confirmar tu cita.</p>
                         <div class="space-y-4">
-                            <div class="flex items-center">
+                            <div class="flex items-center bg-white bg-opacity-20 p-3 rounded-lg">
                                 <i data-feather="phone" class="mr-3"></i>
-                                <span>971 116 1332</span>
+                                <span class="font-semibold">971 116 1332</span>
                             </div>
-                            <div class="flex items-center">
+                            <div class="flex items-center bg-white bg-opacity-20 p-3 rounded-lg">
                                 <i data-feather="mail" class="mr-3"></i>
-                                <span>dracitlalifuentes@gmail.com</span>
+                                <span class="font-semibold">dracitlalifuentes@gmail.com</span>
                             </div>
-                            <div class="flex items-center">
+                            <div class="flex items-center bg-white bg-opacity-20 p-3 rounded-lg">
                                 <i data-feather="map-pin" class="mr-3"></i>
-                                <span>C. Acapulco & Av Tampico, Santa Rosa, 70600 Salina Cruz, Oax., México</span>
+                                <span class="font-semibold">C. Acapulco & Av Tampico, Santa Rosa, 70600 Salina Cruz, Oax., México</span>
                             </div>
                         </div>
                         <div class="mt-8">
-                            <h3 class="font-bold mb-3">Horario de atención:</h3>
-                            <p>Lunes a Viernes: 8:00 - 19:00 hrs</p>
-                            <p>Sábados: 9:00 - 14:00 hrs</p>
-                        </div>
-                        <div class="mt-8">
-                            <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20agendar%20una%20cita..." class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium inline-flex items-center btn-primary">
-                                <i data-feather="message-circle" class="mr-2"></i> WhatsApp rápido
-                            </a>
+                            <h3 class="font-bold mb-3 text-xl">Horario de atención:</h3>
+                            <p class="mb-2"><span class="font-semibold">Lunes a Viernes:</span> 8:00 - 19:00 hrs</p>
+                            <p><span class="font-semibold">Sábados:</span> 9:00 - 14:00 hrs</p>
                         </div>
                     </div>
-                    <div class="md:w-1/2 bg-dark-secondary p-8 md:p-12">
-                        <!-- Simple Contact Form -->
-                        <form class="w-full" id="appointment-form">
-                            <div class="mb-4">
-                                <label for="name" class="block text-text-light mb-2 required-field">Nombre completo</label>
-                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none bg-dark-primary border-accent-blue text-text-light focus:ring-2 focus:ring-accent-pink">
+                    <div class="md:w-1/2 bg-white p-8 md:p-12">
+                        <!-- Botón para ir al formulario dedicado -->
+                        <div class="text-center h-full flex flex-col justify-center items-center">
+                            <div class="bg-accent-blue bg-opacity-20 rounded-full p-6 mb-6 hover-lift">
+                                <i data-feather="edit-3" class="w-16 h-16 text-accent-blue"></i>
                             </div>
-                            <div class="mb-4">
-                                <label for="phone" class="block text-text-light mb-2 required-field">Teléfono</label>
-                                <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2 border rounded-lg focus:outline-none bg-dark-primary border-accent-blue text-text-light focus:ring-2 focus:ring-accent-pink">
-                            </div>
-                            <div class="mb-4">
-                                <label for="email" class="block text-text-light mb-2">Correo electrónico</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none bg-dark-primary border-accent-blue text-text-light focus:ring-2 focus:ring-accent-pink">
-                            </div>
-                            <div class="mb-4">
-                                <label for="service" class="block text-text-light mb-2">Servicio de interés</label>
-                                <select id="service" name="service" class="w-full px-4 py-2 border rounded-lg focus:outline-none bg-dark-primary border-accent-blue text-text-light focus:ring-2 focus:ring-accent-pink">
-                                    <option value="Odontopediatría">Odontopediatría</option>
-                                    <option value="Limpieza dental">Limpieza dental</option>
-                                    <option value="Blanqueamiento">Blanqueamiento</option>
-                                    <option value="Sellantes">Sellantes</option>
-                                    <option value="Restauraciones">Restauraciones</option>
-                                    <option value="Ortodoncia preventiva">Ortodoncia preventiva</option>
-                                    <option value="Otro">Otro</option>
-                                </select>
-                            </div>
-                            <div class="mb-6">
-                                <label for="message" class="block text-text-light mb-2">Mensaje adicional</label>
-                                <textarea id="message" name="message" rows="3" class="w-full px-4 py-2 border rounded-lg focus:outline-none bg-dark-primary border-accent-blue text-text-light focus:ring-2 focus:ring-accent-pink"></textarea>
-                            </div>
-                            <button type="button" onclick="submitForm()" class="w-full bg-accent-pink text-text-light py-3 rounded-lg font-medium hover:bg-accent-blue transition duration-300 btn-primary">
-                                Solicitar cita
-                            </button>
-                        </form>
-                        
-                        <!-- Success message (hidden by default) -->
-                        <div id="form-success" class="form-success">
-                            <i data-feather="check-circle" class="w-12 h-12 mx-auto mb-4 text-white"></i>
-                            <h3 class="text-2xl font-bold text-white mb-2">¡Gracias por tu mensaje!</h3>
-                            <p class="text-white mb-4">Hemos recibido tu solicitud de cita. Nos comunicaremos contigo a la brevedad para confirmar.</p>
-                            <button onclick="resetForm()" class="bg-white text-accent-blue px-6 py-2 rounded-full font-medium mt-4 hover:bg-opacity-90 transition">
-                                Enviar otra solicitud
-                            </button>
+                            <h3 class="text-2xl font-bold text-dark-blue mb-4 font-comfortaa">Formulario de Cita</h3>
+                            <p class="text-dark-blue text-center mb-6 leading-relaxed">
+                                Para una mejor experiencia, hemos creado un formulario especializado donde podrás proporcionar todos los detalles de tu cita.
+                            </p>
+                            <a href="formulario.html" class="w-full bg-accent-pink text-white py-4 rounded-xl font-semibold hover:bg-accent-blue transition duration-300 btn-primary text-center text-lg hover-lift">
+                                Ir al Formulario de Cita
+                            </a>
+                            <p class="text-dark-blue text-sm mt-4 text-center opacity-75">
+                                Te redirigiremos a nuestra página de formulario especializado
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -466,46 +680,54 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contacto" class="bg-gradient-to-r from-accent-blue to-blue-50 text-text-light py-12">
+    <footer id="contacto" class="bg-gradient-to-r from-accent-blue to-blue-50 text-dark-blue py-12">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold mb-4">Contáctanos</h2>
-                <p class="text-xl max-w-2xl mx-auto">Estamos aquí para responder tus preguntas y cuidar de las sonrisas de tu familia</p>
+            <div class="text-center mb-10 animate-fade-in">
+                <h2 class="text-3xl font-bold mb-4 font-comfortaa">Contáctanos</h2>
+                <p class="text-xl max-w-2xl mx-auto leading-relaxed">
+                    Estamos aquí para responder tus preguntas y cuidar de las sonrisas de tu familia
+                </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
+                <div class="animate-slide-up">
                     <div class="flex items-center mb-4">
-                        <i data-feather="smile" class="text-text-light w-8 h-8 mr-2 bg-accent-pink p-2 rounded-full"></i>
-                        <span class="text-xl font-bold">Dra. Citlali Fuentes</span>
+                        <div class="bg-gradient-to-r from-accent-blue to-accent-pink p-2 rounded-lg mr-3">
+                            <i data-feather="smile" class="text-white w-6 h-6"></i>
+                        </div>
+                        <span class="text-xl font-bold font-comfortaa">Dra. Citlali Fuentes</span>
                     </div>
-                    <p class="text-white">Odontopediatra especializada en atención a niños con miedo al dentista y cuidado dental familiar.</p>
+                    <p class="text-dark-blue mb-4 leading-relaxed">
+                        Odontopediatra especializada en atención a niños con miedo al dentista y cuidado dental familiar.
+                    </p>
                     <div class="mt-4">
-                        <a href="#agendar" class="inline-block bg-accent-pink text-text-light px-6 py-2 rounded-full font-medium btn-primary mt-4">Agendar cita</a>
+                        <a href="#agendar" class="inline-block bg-accent-pink text-white px-6 py-3 rounded-full font-semibold btn-primary mt-4 hover-lift">
+                            Agendar cita
+                        </a>
                     </div>
                 </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4 text-white">Enlaces rápidos</h3>
+                <div class="animate-slide-up" style="animation-delay: 0.1s;">
+                    <h3 class="text-lg font-bold mb-4 font-comfortaa">Enlaces rápidos</h3>
                     <ul class="space-y-2">
-                        <li><a href="#inicio" class="text-white hover:text-text-light transition flex items-center"><i data-feather="home" class="w-4 h-4 mr-2"></i> Inicio</a></li>
-                        <li><a href="#servicios" class="text-white hover:text-text-light transition flex items-center"><i data-feather="activity" class="w-4 h-4 mr-2"></i> Servicios</a></li>
-                        <li><a href="#doctora" class="text-white hover:text-text-light transition flex items-center"><i data-feather="user" class="w-4 h-4 mr-2"></i> La Doctora</a></li>
-                        <li><a href="#testimonios" class="text-white hover:text-text-light transition flex items-center"><i data-feather="message-square" class="w-4 h-4 mr-2"></i> Testimonios</a></li>
-                        <li><a href="#agendar" class="text-white hover:text-text-light transition flex items-center"><i data-feather="calendar" class="w-4 h-4 mr-2"></i> Agendar cita</a></li>
+                        <li><a href="#inicio" class="text-dark-blue hover:text-accent-pink transition flex items-center group"><i data-feather="home" class="w-4 h-4 mr-2"></i> Inicio</a></li>
+                        <li><a href="#servicios" class="text-dark-blue hover:text-accent-pink transition flex items-center group"><i data-feather="activity" class="w-4 h-4 mr-2"></i> Servicios</a></li>
+                        <li><a href="#doctora" class="text-dark-blue hover:text-accent-pink transition flex items-center group"><i data-feather="user" class="w-4 h-4 mr-2"></i> La Doctora</a></li>
+                        <li><a href="#testimonios" class="text-dark-blue hover:text-accent-pink transition flex items-center group"><i data-feather="message-square" class="w-4 h-4 mr-2"></i> Testimonios</a></li>
+                        <li><a href="#agendar" class="text-dark-blue hover:text-accent-pink transition flex items-center group"><i data-feather="calendar" class="w-4 h-4 mr-2"></i> Agendar cita</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4 text-white">Contacto</h3>
+                <div class="animate-slide-up" style="animation-delay: 0.2s;">
+                    <h3 class="text-lg font-bold mb-4 font-comfortaa">Contacto</h3>
                     <ul class="space-y-2">
-                        <li class="flex items-center bg-white bg-opacity-90 p-3 rounded-lg mb-3">
+                        <li class="flex items-center bg-white bg-opacity-90 p-3 rounded-lg mb-3 hover-lift">
                             <i data-feather="map-pin" class="w-6 h-6 mr-3 text-accent-blue"></i>
-                            <span class="text-blue-800 font-medium">C. Acapulco & Av Tampico, Santa Rosa, 70600 Salina Cruz, Oax., México</span>
+                            <span class="text-dark-blue font-medium">C. Acapulco & Av Tampico, Santa Rosa, 70600 Salina Cruz, Oax., México</span>
                         </li>
-                        <li class="flex items-center bg-white bg-opacity-90 p-3 rounded-lg mb-3">
+                        <li class="flex items-center bg-white bg-opacity-90 p-3 rounded-lg mb-3 hover-lift">
                             <i data-feather="phone" class="w-6 h-6 mr-3 text-accent-blue"></i>
-                            <span class="text-blue-800 font-medium">971 116 1332</span>
+                            <span class="text-dark-blue font-medium">971 116 1332</span>
                         </li>
                         <li class="mt-6">
-                            <div class="overflow-hidden rounded-lg h-48">
+                            <div class="overflow-hidden rounded-lg h-48 shadow-lg hover-lift">
                                 <iframe 
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3810.154853344278!2d-95.200056!3d16.171906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDEwJzE4LjkiTiA5NcKwMTInMDAuMCJX!5e0!3m2!1sen!2smx!4v1620000000000!5m2!1sen!2smx" 
                                     width="100%" 
@@ -513,40 +735,45 @@
                                     style="border:0;" 
                                     allowfullscreen="" 
                                     loading="lazy"
-                                    class="rounded-lg shadow-lg"
+                                    class="rounded-lg"
                                     referrerpolicy="no-referrer-when-downgrade">
                                 </iframe>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-lg font-bold mb-4">Síguenos</h3>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/profile.php?id=61580913203290" class="bg-purple-500 p-3 rounded-full hover:bg-yellow-400 transition transform hover:scale-110">
-                            <i data-feather="facebook" class="w-5 h-5"></i>
+                <div class="animate-slide-up" style="animation-delay: 0.3s;">
+                    <h3 class="text-lg font-bold mb-4 font-comfortaa">Síguenos</h3>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="https://www.facebook.com/profile.php?id=61580913203290" 
+                           class="bg-purple-500 p-3 rounded-full hover:bg-purple-600 transition transform hover:scale-110 shadow-lg"
+                           target="_blank">
+                            <i data-feather="facebook" class="w-5 h-5 text-white"></i>
                         </a>
-                        <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20estoy%20interesado(a)%20en%20agendar%20una%20cita%2C%20¿me%20podrían%20brindar%20más%20información%3F" class="bg-green-500 p-3 rounded-full hover:bg-green-600 transition transform hover:scale-110">
-                            <i data-feather="message-circle" class="w-5 h-5"></i>
+                        <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20estoy%20interesado(a)%20en%20agendar%20una%20cita%2C%20¿me%20podrían%20brindar%20más%20información%3F" 
+                           class="bg-green-500 p-3 rounded-full hover:bg-green-600 transition transform hover:scale-110 shadow-lg"
+                           target="_blank">
+                            <i data-feather="message-circle" class="w-5 h-5 text-white"></i>
                         </a>
                     </div>
-                    <div class="mt-6">
-                        <h4 class="font-bold mb-2">Boletín informativo</h4>
-                        <div class="flex">
-                            <input type="email" placeholder="Tu correo" class="px-4 py-3 bg-dark-secondary text-text-light rounded-l-lg focus:outline-none w-full focus:bg-dark-primary transition">
-                            <button class="bg-yellow-400 hover:bg-purple-500 px-6 py-3 rounded-r-lg transition text-text-light">
-                                <i data-feather="send" class="w-5 h-5"></i>
-                            </button>
-                        </div>
+                    <div class="bg-white bg-opacity-90 p-4 rounded-lg shadow-md">
+                        <h4 class="font-bold text-dark-blue mb-2">¿Primera vez con nosotros?</h4>
+                        <p class="text-dark-blue text-sm mb-3">
+                            Te invitamos a conocer nuestro enfoque único para el cuidado dental infantil.
+                        </p>
+                        <a href="#doctora" class="text-accent-pink font-semibold text-sm flex items-center group">
+                            Conoce nuestra metodología
+                            <i data-feather="arrow-right" class="ml-1 w-3 h-3 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-text-light border-opacity-20 mt-12 pt-8 text-center text-gray-300">
-                <p>© 2023 Fundación Dientes - Dra. Citlali Fuentes. Todos los derechos reservados.</p>
+            <div class="border-t border-dark-blue border-opacity-20 mt-12 pt-8 text-center text-dark-blue animate-fade-in">
+                <p>© 2024 Fundación Dientes - Dra. Citlali Fuentes. Todos los derechos reservados.</p>
                 <div class="mt-4 flex justify-center space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-text-light">Política de privacidad</a>
+                    <a href="#" class="text-dark-blue hover:text-accent-pink transition-colors">Política de privacidad</a>
                     <span>•</span>
-                    <a href="#" class="text-gray-400 hover:text-text-light">Términos de servicio</a>
+                    <a href="#" class="text-dark-blue hover:text-accent-pink transition-colors">Términos de servicio</a>
                 </div>
             </div>
         </div>
@@ -555,66 +782,96 @@
     <script>
         feather.replace();
         
-        // Smooth scrolling for anchor links
+        // Smooth scrolling with offset for fixed header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const headerHeight = document.getElementById('mainNav').offsetHeight;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                window.scrollTo({
+                    top: targetPosition,
                     behavior: 'smooth'
                 });
             });
         });
-        
-        // Mobile menu toggle
-        const mobileMenuButton = document.querySelector('.md\\:hidden');
-        const mobileMenu = document.querySelector('.md\\:flex');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-            mobileMenu.classList.toggle('flex-col');
-            mobileMenu.classList.toggle('absolute');
-            mobileMenu.classList.toggle('top-16');
-            mobileMenu.classList.toggle('right-6');
-            mobileMenu.classList.toggle('bg-white');
-            mobileMenu.classList.toggle('p-4');
-            mobileMenu.classList.toggle('shadow-lg');
-            mobileMenu.classList.toggle('rounded-lg');
-            mobileMenu.classList.toggle('space-y-2');
-            mobileMenu.classList.toggle('space-x-0');
-        });
-        
-        // Form Handling
-        function submitForm() {
-            const form = document.getElementById('appointment-form');
-            const successMessage = document.getElementById('form-success');
+
+        // Sticky navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            const backToTop = document.getElementById('backToTop');
             
-            // Simple validation
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            
-            if (!name || !phone) {
-                alert('Por favor completa los campos obligatorios (Nombre y Teléfono)');
-                return;
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled', 'shadow-lg');
+                backToTop.classList.add('show');
+            } else {
+                nav.classList.remove('scrolled', 'shadow-lg');
+                backToTop.classList.remove('show');
             }
             
-            // Show success message
-            form.style.display = 'none';
-            successMessage.classList.add('show');
+            // Loading bar
+            const winHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset;
+            const trackLength = docHeight - winHeight;
+            const progress = (scrollTop / trackLength) * 100;
+            document.getElementById('loadingBar').style.width = progress + '%';
+        });
+
+        // Back to top
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
             
-            // Optional: Send form data via email (you would need a backend for this)
-            // For now, we'll just show the success message
-        }
-        
-        function resetForm() {
-            const form = document.getElementById('appointment-form');
-            const successMessage = document.getElementById('form-success');
+            // Change icon
+            const icon = this.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                feather.icons.menu.replaceFeather(icon);
+            } else {
+                feather.icons.x.replaceFeather(icon);
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe animated elements
+        document.querySelectorAll('.animate-fade-in, .animate-slide-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Preload images for better performance
+        window.addEventListener('load', function() {
+            const images = [
+                'https://github.com/dracitlalifuentes-sudo/dra-citlali-fuentes/blob/main/images/IMG-20251019-WA0006.jpg?raw=true',
+                'https://github.com/dracitlalifuentes-sudo/dra-citlali-fuentes/blob/main/images/Imagen%20de%20WhatsApp%202025-10-08%20a%20las%2020.59.42_3fb2b2f9.jpg?raw=true'
+            ];
             
-            form.style.display = 'block';
-            successMessage.classList.remove('show');
-            form.reset();
-        }
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        });
     </script>
 </body>
 </html>
