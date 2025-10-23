@@ -323,7 +323,13 @@
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
         }
         
-        /* Elementos decorativos de Halloween */
+        /* Elementos decorativos de Halloween - AHORA CON z-index BAJO */
+        .halloween-element {
+            position: fixed;
+            z-index: 1; /* Muy bajo para que quede detrás del contenido */
+            pointer-events: none; /* Para que no interfiera con clics */
+        }
+        
         .pumpkin {
             width: 60px;
             height: 60px;
@@ -427,13 +433,15 @@
     </style>
 </head>
 <body class="min-h-screen halloween-bg">
-    <!-- Elementos decorativos de Halloween flotantes -->
-    <div class="fixed top-10 left-5 z-0 pumpkin animate-float"></div>
-    <div class="fixed top-20 right-10 z-0 ghost"></div>
-    <div class="fixed bottom-20 left-10 z-0 spider"></div>
-    <div class="fixed top-1/4 left-1/4 z-0 bat animate-bat-fly" style="animation-delay: 2s;"></div>
-    <div class="fixed top-1/3 right-1/3 z-0 bat animate-bat-fly" style="animation-delay: 7s;"></div>
-    <div class="fixed bottom-1/4 left-1/3 z-0 pumpkin animate-spooky-float" style="animation-delay: 3s;"></div>
+    <!-- Elementos decorativos de Halloween flotantes - AHORA CON z-index BAJO -->
+    <div class="halloween-element top-10 left-5 pumpkin animate-float"></div>
+    <div class="halloween-element top-20 right-10 ghost"></div>
+    <div class="halloween-element bottom-20 left-10 spider"></div>
+    <div class="halloween-element top-1/4 left-1/4 bat animate-bat-fly" style="animation-delay: 2s;"></div>
+    <div class="halloween-element top-1/3 right-1/3 bat animate-bat-fly" style="animation-delay: 7s;"></div>
+    <div class="halloween-element bottom-1/4 left-1/3 pumpkin animate-spooky-float" style="animation-delay: 3s;"></div>
+    <div class="halloween-element top-10 right-20 ghost" style="animation-delay: 5s;"></div>
+    <div class="halloween-element bottom-40 right-10 spider" style="animation-delay: 4s;"></div>
 
     <!-- Skip Link para accesibilidad -->
     <a href="#main-content" class="skip-link focus-ring">Saltar al contenido principal</a>
@@ -517,7 +525,7 @@
         </div>
     </nav>
 
-    <main id="main-content">
+    <main id="main-content" class="relative z-10">
         <!-- Hero Section con tema Halloween -->
         <section id="inicio" class="hero-clip bg-gradient-to-r from-halloween-orange to-halloween-purple py-20 md:py-32 relative overflow-hidden">
             <div class="absolute inset-0 bg-black opacity-20"></div>
@@ -593,7 +601,7 @@
         </section>
 
         <!-- Stats Section con contadores animados -->
-        <section class="py-16 bg-gray-900">
+        <section class="py-16 bg-gray-900 relative z-20">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                     <div class="animate-fade-in">
@@ -617,7 +625,7 @@
         </section>
 
         <!-- Services Section con tema Halloween -->
-        <section id="servicios" class="py-20 bg-gray-800">
+        <section id="servicios" class="py-20 bg-gray-800 relative z-20">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 animate-fade-in">
                     <h2 class="text-4xl font-bold text-white mb-4 font-comfortaa">Nuestros Servicios Dentales</h2>
@@ -736,7 +744,7 @@
         </section>
 
         <!-- About Doctor Section -->
-        <section id="doctora" class="py-20 bg-gradient-to-r from-halloween-orange to-gray-900">
+        <section id="doctora" class="py-20 bg-gradient-to-r from-halloween-orange to-gray-900 relative z-20">
             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-10 md:mb-0 flex justify-center animate-fade-in">
                     <div class="relative">
@@ -803,7 +811,7 @@
         </section>
 
         <!-- Appointment Section -->
-        <section id="agendar" class="py-20 bg-gradient-to-r from-halloween-orange to-gray-800">
+        <section id="agendar" class="py-20 bg-gradient-to-r from-halloween-orange to-gray-800 relative z-20">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto appointment-card rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
                     <div class="md:flex">
@@ -851,7 +859,7 @@
     </main>
 
     <!-- Footer -->
-    <footer id="contacto" class="bg-gradient-to-r from-halloween-orange to-gray-900 text-white py-12">
+    <footer id="contacto" class="bg-gradient-to-r from-halloween-orange to-gray-900 text-white py-12 relative z-20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-10 animate-fade-in">
                 <h2 class="text-3xl font-bold mb-4 font-comfortaa">Contáctanos</h2>
