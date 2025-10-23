@@ -47,7 +47,8 @@
                         'spooky-float': 'spookyFloat 8s ease-in-out infinite',
                         'bat-fly': 'batFly 15s linear infinite',
                         'pumpkin-glow': 'pumpkinGlow 3s ease-in-out infinite alternate',
-                        'ghost-float': 'ghostFloat 10s ease-in-out infinite'
+                        'ghost-float': 'ghostFloat 10s ease-in-out infinite',
+                        'ghost-wander': 'ghostWander 25s linear infinite'
                     },
                     fontFamily: {
                         'comfortaa': ['Comfortaa', 'cursive'],
@@ -147,6 +148,30 @@
             75% { 
                 transform: translateY(-25px) scaleX(1.1);
                 opacity: 0.9;
+            }
+        }
+
+        /* Nueva animación para el fantasmita que recorre toda la pantalla */
+        @keyframes ghostWander {
+            0% { 
+                transform: translate(0, 0) scale(0.7);
+                opacity: 0.6;
+            }
+            25% { 
+                transform: translate(calc(100vw - 50px), 50vh) scale(0.8);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translate(50vw, calc(100vh - 100px)) scale(0.6);
+                opacity: 0.5;
+            }
+            75% { 
+                transform: translate(20vw, 20vh) scale(0.9);
+                opacity: 0.7;
+            }
+            100% { 
+                transform: translate(0, 0) scale(0.7);
+                opacity: 0.6;
             }
         }
         
@@ -351,22 +376,22 @@
             clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 20% 100%);
         }
         
+        /* Fantasmita más pequeño */
         .ghost {
-            width: 50px;
-            height: 65px;
+            width: 35px; /* Más pequeño */
+            height: 45px; /* Más pequeño */
             background: rgba(255, 255, 255, 0.9);
             border-radius: 50% 50% 0 0;
             position: relative;
-            animation: ghostFloat 10s ease-in-out infinite;
         }
         
         .ghost::before {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -10px;
             left: 0;
             width: 100%;
-            height: 20px;
+            height: 15px;
             background: rgba(255, 255, 255, 0.9);
             clip-path: polygon(0% 0%, 20% 100%, 40% 0%, 60% 100%, 80% 0%, 100% 100%);
         }
@@ -433,15 +458,8 @@
     </style>
 </head>
 <body class="min-h-screen halloween-bg">
-    <!-- Elementos decorativos de Halloween flotantes - AHORA CON z-index BAJO -->
-    <div class="halloween-element top-10 left-5 pumpkin animate-float"></div>
-    <div class="halloween-element top-20 right-10 ghost"></div>
-    <div class="halloween-element bottom-20 left-10 spider"></div>
-    <div class="halloween-element top-1/4 left-1/4 bat animate-bat-fly" style="animation-delay: 2s;"></div>
-    <div class="halloween-element top-1/3 right-1/3 bat animate-bat-fly" style="animation-delay: 7s;"></div>
-    <div class="halloween-element bottom-1/4 left-1/3 pumpkin animate-spooky-float" style="animation-delay: 3s;"></div>
-    <div class="halloween-element top-10 right-20 ghost" style="animation-delay: 5s;"></div>
-    <div class="halloween-element bottom-40 right-10 spider" style="animation-delay: 4s;"></div>
+    <!-- SOLO UN FANTASMITA PEQUEÑO QUE SE MUEVE POR TODA LA PANTALLA -->
+    <div class="halloween-element ghost animate-ghost-wander"></div>
 
     <!-- Skip Link para accesibilidad -->
     <a href="#main-content" class="skip-link focus-ring">Saltar al contenido principal</a>
@@ -545,7 +563,6 @@
                     </h1>
                     <p class="text-xl text-white mb-8 opacity-90 leading-relaxed">
                         Atención a niños y adultos nerviosos. Tratamientos accesibles y personalizados en un ambiente cálido y seguro.
-                        <span class="block mt-2 text-yellow-300 font-semibold">🎃 ¡Celebra Halloween con una sonrisa brillante! 🎃</span>
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                         <a href="#agendar" class="bg-white text-halloween-orange px-8 py-4 rounded-full font-semibold btn-primary text-center hover-lift focus-ring hover:bg-yellow-100">
@@ -593,8 +610,6 @@
                                 <i data-feather="arrow-right" class="ml-2 text-white w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
                             </a>
                         </div>
-                        <!-- Calabaza decorativa -->
-                        <div class="absolute -top-4 -left-4 pumpkin animate-pumpkin-glow"></div>
                     </div>
                 </div>
             </div>
@@ -1095,18 +1110,6 @@
                 toast.classList.remove('show');
             }, 3000);
         }
-
-        // Efectos de sonido opcionales para Halloween
-        function playSpookySound() {
-            // Podrías agregar sonidos suaves de Halloween aquí
-            console.log('🎃 ¡Efecto de Halloween!');
-        }
-
-        // Agregar interactividad a los elementos de Halloween
-        document.querySelectorAll('.pumpkin, .ghost, .bat').forEach(element => {
-            element.addEventListener('click', playSpookySound);
-            element.style.cursor = 'pointer';
-        });
 
         // Preload images for better performance
         window.addEventListener('load', function() {
