@@ -22,7 +22,10 @@
                         'light-bg': '#F8F9FA',
                         'soft-blue': '#E3F2FD',
                         'deep-blue': '#1565C0',
-                        'success-green': '#10B981'
+                        'success-green': '#10B981',
+                        'halloween-orange': '#FF7518',
+                        'halloween-purple': '#8B008B',
+                        'spooky-green': '#228B22'
                     },
                     animation: {
                         'fade-in': 'fadeIn 0.8s ease-in-out',
@@ -40,21 +43,22 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1E88E5 0%, #D81B60 100%);
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
             min-height: 100vh;
             scroll-behavior: smooth;
+            color: #ffffff;
         }
         
         .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(45, 45, 45, 0.95);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid #FF7518;
         }
         
         .gradient-border {
             border: 2px solid transparent;
-            background: linear-gradient(white, white) padding-box,
-                        linear-gradient(135deg, #1E88E5, #D81B60) border-box;
+            background: linear-gradient(#2d2d2d, #2d2d2d) padding-box,
+                        linear-gradient(135deg, #FF7518, #8B008B) border-box;
         }
         
         .hover-lift {
@@ -91,8 +95,8 @@
         }
         
         .input-focus:focus {
-            border-color: #1E88E5;
-            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+            border-color: #FF7518;
+            box-shadow: 0 0 0 3px rgba(255, 117, 24, 0.1);
             outline: none;
         }
         
@@ -103,7 +107,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #1E88E5, #D81B60);
+            background: linear-gradient(135deg, #FF7518, #8B008B);
             color: white;
             font-size: 0.8rem;
         }
@@ -128,18 +132,26 @@
             top: 0;
             left: 0;
             height: 3px;
-            background: linear-gradient(90deg, #1E88E5, #D81B60);
+            background: linear-gradient(90deg, #FF7518, #8B008B);
             z-index: 1001;
             transition: width 0.3s ease;
         }
         
         .focus-ring:focus {
-            outline: 2px solid #1E88E5;
+            outline: 2px solid #FF7518;
             outline-offset: 2px;
+        }
+
+        .halloween-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen flex items-center justify-center p-4 halloween-bg">
     <!-- Loading Bar -->
     <div class="loading-bar" id="loadingBar"></div>
 
@@ -154,7 +166,7 @@
     <div class="w-full max-w-2xl animate-fade-in">
         <!-- Header Card -->
         <div class="glass-effect rounded-2xl shadow-2xl overflow-hidden mb-6 gradient-border">
-            <div class="bg-gradient-to-r from-accent-blue to-accent-pink p-8 text-white text-center relative">
+            <div class="bg-gradient-to-r from-halloween-orange to-halloween-purple p-8 text-white text-center relative">
                 <a href="index.html" class="absolute left-6 top-6 bg-white bg-opacity-20 p-3 rounded-full hover:bg-opacity-30 transition-all duration-300 hover-lift focus-ring">
                     <i data-feather="arrow-left" class="w-5 h-5"></i>
                 </a>
@@ -163,7 +175,7 @@
                     <i data-feather="calendar" class="w-10 h-10"></i>
                 </div>
                 
-                <h1 class="text-3xl font-bold font-comfortaa mb-2">Agendar Cita</h1>
+                <h1 class="text-3xl font-bold font-comfortaa mb-2 text-shadow">🎃 Agendar Cita</h1>
                 <p class="text-white text-opacity-90 text-lg">Tu sonrisa es nuestra prioridad</p>
             </div>
 
@@ -172,8 +184,8 @@
                 <form id="citaForm" class="space-y-6">
                     <!-- Nombre -->
                     <div class="animate-slide-up">
-                        <label for="nombre" class="block text-sm font-semibold text-gray-700 mb-2">
-                            <span class="text-accent-pink">*</span> Nombre completo
+                        <label for="nombre" class="block text-sm font-semibold text-gray-200 mb-2">
+                            <span class="text-halloween-orange">*</span> Nombre completo
                         </label>
                         <div class="relative">
                             <i data-feather="user" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
@@ -181,15 +193,15 @@
                                 type="text" 
                                 id="nombre" 
                                 required
-                                class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:border-accent-blue input-focus transition-all duration-300 bg-gray-50"
+                                class="w-full pl-10 pr-4 py-3 border border-gray-600 rounded-xl focus:border-halloween-orange input-focus transition-all duration-300 bg-gray-800 text-white placeholder-gray-400"
                                 placeholder="Ingresa tu nombre completo">
                         </div>
                     </div>
 
                     <!-- Teléfono -->
                     <div class="animate-slide-up" style="animation-delay: 0.1s;">
-                        <label for="telefono" class="block text-sm font-semibold text-gray-700 mb-2">
-                            <span class="text-accent-pink">*</span> Teléfono
+                        <label for="telefono" class="block text-sm font-semibold text-gray-200 mb-2">
+                            <span class="text-halloween-orange">*</span> Teléfono
                         </label>
                         <div class="relative">
                             <i data-feather="phone" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
@@ -197,23 +209,23 @@
                                 type="tel" 
                                 id="telefono" 
                                 required
-                                class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:border-accent-blue input-focus transition-all duration-300 bg-gray-50"
+                                class="w-full pl-10 pr-4 py-3 border border-gray-600 rounded-xl focus:border-halloween-orange input-focus transition-all duration-300 bg-gray-800 text-white placeholder-gray-400"
                                 placeholder="Tu número de teléfono">
                         </div>
                     </div>
 
                     <!-- Servicio -->
                     <div class="animate-slide-up" style="animation-delay: 0.2s;">
-                        <label for="servicio" class="block text-sm font-semibold text-gray-700 mb-2">
+                        <label for="servicio" class="block text-sm font-semibold text-gray-200 mb-2">
                             Servicio de interés
                         </label>
                         <div class="relative">
                             <i data-feather="activity" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
                             <select 
                                 id="servicio"
-                                class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:border-accent-blue input-focus transition-all duration-300 bg-gray-50 appearance-none">
+                                class="w-full pl-10 pr-4 py-3 border border-gray-600 rounded-xl focus:border-halloween-orange input-focus transition-all duration-300 bg-gray-800 text-white appearance-none">
                                 <option value="Consulta de Valoración">Consulta de Valoración</option>
-				<option value="Odontopediatría">Odontopediatría</option>
+                                <option value="Odontopediatría">Odontopediatría</option>
                                 <option value="Limpieza dental">Limpieza dental</option>
                                 <option value="Blanqueamiento">Blanqueamiento</option>
                                 <option value="Sellantes dentales">Sellantes dentales</option>
@@ -227,7 +239,7 @@
 
                     <!-- Mensaje -->
                     <div class="animate-slide-up" style="animation-delay: 0.3s;">
-                        <label for="mensaje" class="block text-sm font-semibold text-gray-700 mb-2">
+                        <label for="mensaje" class="block text-sm font-semibold text-gray-200 mb-2">
                             Mensaje adicional
                         </label>
                         <div class="relative">
@@ -235,7 +247,7 @@
                             <textarea 
                                 id="mensaje"
                                 rows="4"
-                                class="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:border-accent-blue input-focus transition-all duration-300 bg-gray-50 resize-none"
+                                class="w-full pl-10 pr-4 py-3 border border-gray-600 rounded-xl focus:border-halloween-orange input-focus transition-all duration-300 bg-gray-800 text-white placeholder-gray-400 resize-none"
                                 placeholder="¿Alguna información adicional que quieras compartir con nosotros?"></textarea>
                         </div>
                     </div>
@@ -248,39 +260,39 @@
                         style="animation-delay: 0.4s;">
                         <div class="flex items-center justify-center space-x-3">
                             <i data-feather="message-circle" class="w-5 h-5"></i>
-                            <span>Enviar por WhatsApp</span>
+                            <span>👻 Enviar por WhatsApp</span>
                         </div>
                     </button>
                 </form>
 
                 <!-- Features List -->
-                <div class="mt-8 p-6 bg-soft-blue rounded-2xl border border-blue-100 animate-slide-up" style="animation-delay: 0.5s;">
+                <div class="mt-8 p-6 bg-gray-800 rounded-2xl border border-halloween-orange animate-slide-up" style="animation-delay: 0.5s;">
                     <div class="space-y-3">
                         <div class="flex items-center space-x-3">
                             <div class="feature-icon">
                                 <i data-feather="check" class="w-3 h-3"></i>
                             </div>
-                            <span class="text-sm text-gray-700 font-medium">💬 Respuesta inmediata por WhatsApp</span>
+                            <span class="text-sm text-gray-200 font-medium">💬 Respuesta inmediata por WhatsApp</span>
                         </div>
                         <div class="flex items-center space-x-3">
                             <div class="feature-icon">
                                 <i data-feather="check" class="w-3 h-3"></i>
                             </div>
-                            <span class="text-sm text-gray-700 font-medium">⏰ Confirmación de cita en menos de 24h</span>
+                            <span class="text-sm text-gray-200 font-medium">⏰ Confirmación de cita en menos de 24h</span>
                         </div>
                         <div class="flex items-center space-x-3">
                             <div class="feature-icon">
                                 <i data-feather="check" class="w-3 h-3"></i>
                             </div>
-                            <span class="text-sm text-gray-700 font-medium">🏠 Ambiente familiar y seguro para niños</span>
+                            <span class="text-sm text-gray-200 font-medium">🏠 Ambiente familiar y seguro para niños</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Info Text -->
-                <p class="text-center text-gray-600 text-sm mt-6 animate-fade-in" style="animation-delay: 0.6s;">
+                <p class="text-center text-gray-400 text-sm mt-6 animate-fade-in" style="animation-delay: 0.6s;">
                     Al hacer clic se abrirá WhatsApp con tu información.<br>
-                    <span class="font-semibold">¡Te contactaremos inmediatamente!</span>
+                    <span class="font-semibold text-halloween-orange">¡Te contactaremos inmediatamente!</span>
                 </p>
             </div>
         </div>
@@ -288,18 +300,18 @@
         <!-- Contact Info -->
         <div class="glass-effect rounded-2xl shadow-xl p-6 gradient-border animate-fade-in">
             <div class="text-center">
-                <h3 class="font-bold text-gray-800 mb-4 font-comfortaa">¿Prefieres contactarnos directamente?</h3>
+                <h3 class="font-bold text-white mb-4 font-comfortaa">¿Prefieres contactarnos directamente?</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <a href="tel:9711161332" 
-                       class="flex items-center justify-center space-x-2 bg-accent-blue text-white py-3 px-4 rounded-lg hover:bg-deep-blue transition-all duration-300 hover-lift focus-ring">
+                       class="flex items-center justify-center space-x-2 bg-halloween-orange text-white py-3 px-4 rounded-lg hover:bg-orange-600 transition-all duration-300 hover-lift focus-ring">
                         <i data-feather="phone" class="w-4 h-4"></i>
-                        <span>Llamar ahora</span>
+                        <span>🎃 Llamar ahora</span>
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=5219711161332&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre..." 
                        target="_blank"
                        class="flex items-center justify-center space-x-2 bg-green-500 text-white py-3 px-4 rounded-lg hover:bg-green-600 transition-all duration-300 hover-lift focus-ring">
                         <i data-feather="message-circle" class="w-4 h-4"></i>
-                        <span>WhatsApp Directo</span>
+                        <span>👻 WhatsApp Directo</span>
                     </a>
                 </div>
             </div>
@@ -310,7 +322,7 @@
         // Inicializar Feather Icons
         feather.replace();
         
-        // Loading bar animation (mantenido)
+        // Loading bar animation
         window.addEventListener('scroll', function() {
             const winHeight = window.innerHeight;
             const docHeight = document.documentElement.scrollHeight;
@@ -320,7 +332,7 @@
             document.getElementById('loadingBar').style.width = progress + '%';
         });
 
-        // Sistema de notificaciones SIMPLIFICADO
+        // Sistema de notificaciones
         function showNotification(message, type = 'success') {
             const toast = document.getElementById('notificationToast');
             const messageEl = document.getElementById('toastMessage');
@@ -359,7 +371,7 @@
             }
 
             // Crear mensaje con el formato solicitado
-            let texto = "Hola! Me gustaría agendar una cita:\n\n";
+            let texto = "🎃 ¡Hola! Me gustaría agendar una cita:\n\n";
             texto += "👤 Nombre: " + nombre + "\n";
             texto += "📞 Teléfono: " + telefono + "\n";
             texto += "🦷 Servicio de interés: " + servicio + "\n";
@@ -368,7 +380,7 @@
                 texto += "💬 Mensaje adicional: " + mensaje + "\n";
             }
             
-            texto += "\nPor favor contáctenme para confirmar mi cita. ¡Gracias!";
+            texto += "\n👻 Por favor contáctenme para confirmar mi cita. ¡Gracias!";
 
             // Codificar para URL
             const textoCodificado = encodeURIComponent(texto);
@@ -377,7 +389,7 @@
             const urlWhatsApp = "https://api.whatsapp.com/send?phone=5219711161332&text=" + textoCodificado;
 
             // Mostrar notificación
-            showNotification('¡Redirigiendo a WhatsApp! Completa tu cita allí.');
+            showNotification('🎃 ¡Redirigiendo a WhatsApp! Completa tu cita allí.');
 
             // Abrir WhatsApp - método simple y funcional
             setTimeout(() => {
@@ -385,7 +397,7 @@
             }, 1000);
         }
 
-        // Permitir Enter en los campos (mantenido)
+        // Permitir Enter en los campos
         document.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
@@ -393,21 +405,21 @@
             }
         });
 
-        // Mejorar la experiencia de formulario (mantenido)
+        // Mejorar la experiencia de formulario
         document.querySelectorAll('input, select, textarea').forEach(element => {
             element.addEventListener('focus', function() {
-                this.parentElement.classList.add('ring-2', 'ring-accent-blue', 'ring-opacity-20');
+                this.parentElement.classList.add('ring-2', 'ring-halloween-orange', 'ring-opacity-20');
             });
             
             element.addEventListener('blur', function() {
-                this.parentElement.classList.remove('ring-2', 'ring-accent-blue', 'ring-opacity-20');
+                this.parentElement.classList.remove('ring-2', 'ring-halloween-orange', 'ring-opacity-20');
             });
         });
 
-        // Notificación de bienvenida (mantenida)
+        // Notificación de bienvenida
         window.addEventListener('load', function() {
             setTimeout(() => {
-                showNotification('¡Bienvenido! Completa el formulario para agendar tu cita.', 'success');
+                showNotification('🎃 ¡Bienvenido! Completa el formulario para agendar tu cita.', 'success');
             }, 1000);
         });
     </script>
